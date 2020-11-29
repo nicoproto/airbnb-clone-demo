@@ -1,0 +1,9 @@
+<div class="container col-6 justify-center">
+  <h1>Create a new Flat</h1>
+  <%= simple_form_for @flat do |f| %>
+    <%= f.input :name %>
+    <%= f.input :price %>
+    <%= f.input :description %>
+    <%= f.submit "Create Flat", class: "btn btn-primary" %>
+  <% end %>
+</div>

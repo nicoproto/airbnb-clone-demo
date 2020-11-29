@@ -1,0 +1,16 @@
+<div class="container col-8 justify-center">
+  <h1>Flat Show</h1>
+  <div class="card-trip">
+    <img src="https://cf.bstatic.com/images/hotel/max1024x768/162/162182692.jpg" />
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= @flat.name %></h2>
+        <p><%= @flat.description %></p>
+      </div>
+      <h2 class="card-trip-pricing">$<%= @flat.price %></h2>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    </div>
+  </div>
+
+  <%= link_to "Back", flats_path, class: "btn btn-link" %>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Flat's Index</h1>
+
+  <div class="cards">
+    <% @flats.each do |flat| %>
+      <div class="card">
+        <img src="https://cf.bstatic.com/images/hotel/max1024x768/162/162182692.jpg" class="card-img-top" alt="flat">
+        <div class="card-body">
+          <h5 class="card-title"><%= flat.name %></h5>
+          <p class="card-text"><%= flat.description %></p>
+          <%= link_to "More info", flat_path(flat), class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
