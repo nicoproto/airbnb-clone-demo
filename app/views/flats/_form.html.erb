@@ -1,0 +1,12 @@
+<div class="container col-6 justify-center">
+  <h1>Create a new Flat</h1>
+  <%= simple_form_for @flat do |f| %>
+    <%= f.input :name %>
+    <%= f.input :price %>
+    <%= f.input :description %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "#{ action_name.capitalize } Flat", class: "btn btn-primary" %>
+    <%= link_to "Back", flats_path, class: "btn btn-link" %>
+  <% end %>
+
+</div>

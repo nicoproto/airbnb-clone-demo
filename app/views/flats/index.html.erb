@@ -4,7 +4,11 @@
   <div class="cards">
     <% @flats.each do |flat| %>
       <div class="card">
-        <img src="https://cf.bstatic.com/images/hotel/max1024x768/162/162182692.jpg" class="card-img-top" alt="flat">
+        <% if flat.photo.attached? %>
+          <%= cl_image_tag flat.photo.key, crop: :fill, class: "card-img-top" %>
+        <% else %>
+          <img src="https://cf.bstatic.com/images/hotel/max1024x768/162/162182692.jpg" class="card-img-top" alt="flat">
+        <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= flat.name %></h5>
           <p class="card-text"><%= flat.description %></p>

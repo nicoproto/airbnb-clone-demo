@@ -1,0 +1,45 @@
+<div class="container">
+  <h1>My Flats Bookings</h1>
+  <% @my_flats_bookings.each do |booking| %>
+    <div class="card-product mb-3">
+      <% if booking.flat.photo.attached? %>
+        <%= cl_image_tag booking.flat.photo.key %>
+      <% else %>
+        <img src="https://cf.bstatic.com/images/hotel/max1024x768/162/162182692.jpg" />
+      <% end %>
+      <div class="card-product-infos d-flex justify-content-between w-100 align-items-center">
+        <div>
+          <h2><%= booking.flat.name %></h2>
+          <p>Booked from: <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></p>
+          <p>Total price: <strong><%= number_to_currency(booking.total_price, precision: 0) %></strong></p>
+          <p>Status: <strong><%= booking.status.capitalize %></strong></p>
+        </div>
+        <div>
+          <%= link_to "Accept", booking_path(booking, booking: { status: "accepted"}), method: :patch, class: "btn btn-primary #{booking.status == "accepted" ? "disabled" : ""}" %>
+          <%= link_to "Decline", booking_path(booking, booking: { status: "declined"}), method: :patch, class: "btn btn-danger #{booking.status == "declined" ? "disabled" : ""}" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <h1>My Bookings</h1>
+  <% @my_bookings.each do |booking| %>
+    <div class="card-product mb-3">
+      <% if booking.flat.photo.attached? %>
+        <%= cl_image_tag booking.flat.photo.key %>
+      <% else %>
+        <img src="https://cf.bstatic.com/images/hotel/max1024x768/162/162182692.jpg" />
+      <% end %>
+      <div class="card-product-infos d-flex justify-content-between w-100 align-items-center">
+        <div>
+          <h2><%= booking.flat.name %></h2>
+          <p>Booked from: <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></p>
+          <p>Total price: <strong><%= number_to_currency(booking.total_price, precision: 0) %></strong></p>
+          <p>Status: <strong><%= booking.status.capitalize %></strong></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= link_to "Back", flats_path, class: "btn btn-link" %>
+</div>

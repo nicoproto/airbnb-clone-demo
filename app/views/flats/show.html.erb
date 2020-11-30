@@ -1,7 +1,11 @@
 <div class="container col-8 justify-center">
   <h1>Flat Show</h1>
   <div class="card-trip">
-    <img src="https://cf.bstatic.com/images/hotel/max1024x768/162/162182692.jpg" />
+      <% if @flat.photo.attached? %>
+        <%= cl_image_tag @flat.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <img src="https://cf.bstatic.com/images/hotel/max1024x768/162/162182692.jpg"/>
+      <% end %>
     <div class="card-trip-infos">
       <div>
         <h2><%= @flat.name %></h2>
@@ -13,4 +17,9 @@
   </div>
 
   <%= link_to "Back", flats_path, class: "btn btn-link" %>
+  <% if @flat.user != current_user %>
+    <%= link_to "Book this flat", new_flat_booking_path(@flat), class: "btn btn-primary" %>
+  <% else %>
+    <%= link_to "Edit my flat", edit_flat_path(@flat), class: "btn btn-primary" %>
+  <% end %>
 </div>

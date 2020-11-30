@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Booking confirmed!</h1>
+  <div class="card-product">
+    <% if @booking.flat.photo.attached? %>
+      <%= cl_image_tag @booking.flat.photo.key %>
+    <% else %>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <% end %>
+    <div class="card-product-infos">
+      <h2><%= @booking.flat.name %></h2>
+      <p>Booked from: <strong><%= @booking.start_date %></strong> to <strong><%= @booking.end_date %></strong></p>
+      <p>Total price: <strong><%= number_to_currency(@booking.total_price, precision: 0) %></strong></p>
+      <p>Status: <strong><%= @booking.status.capitalize %></strong></p>
+    </div>
+  </div>
+  <%= link_to "Go to my bookings", bookings_path, class: "btn btn-link" %>
+</div>
