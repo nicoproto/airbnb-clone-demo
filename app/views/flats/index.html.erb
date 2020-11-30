@@ -1,7 +1,8 @@
 <div class="container">
   <h1>Flat's Index</h1>
-
-  <div class="cards">
+</div>
+<div class="d-flex align-items-start">
+  <div class="cards px-3">
     <% @flats.each do |flat| %>
       <div class="card">
         <% if flat.photo.attached? %>
@@ -16,5 +17,11 @@
         </div>
       </div>
     <% end %>
+  </div>
+
+  <div id="map"
+    style="width: 100%; height: 92vh;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 </div>

@@ -15,14 +15,16 @@ flat_1 = Flat.create!(
   name: "My first flat",
   price: 250,
   description: "This is the description of the flat I'm creating now, it should be a bit long but not that much. So make sure that you write something that makes sense.",
-  user: user_1
+  user: user_1,
+  address: "C/ del Telègraf, 54, Barcelona"
   )
 
 flat_2 = Flat.create!(
   name: "My second flat",
   price: 175,
   description: "This is the description of the flat I'm creating now, it should be a bit long but not that much. So make sure that you write something that makes sense.",
-  user: user_2
+  user: user_2,
+  address: "Carrer de Brussel, 43 Barcelona"
   )
 puts "Flats created"
 
